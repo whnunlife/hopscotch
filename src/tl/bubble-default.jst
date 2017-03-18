@@ -12,19 +12,44 @@ var buttons = data.buttons;
 var step = data.step;
 var tour = data.tour;
 %>
-<div class="hopscotch-bubble-container" style="width: <%= step.width %>px; padding: <%= step.padding %>px;">
-  <% if(tour.isTour){ %><span class="hopscotch-bubble-number"><%= i18n.stepNum %></span><% } %>
-  <div class="hopscotch-bubble-content">
+<md-dialog class="hopscotch-dialog md-content-overflow md-transition-in" style="width: <%= step.width %>px; padding: <%= step.padding %>px;">
+  <% if(buttons.showClose){ %>
+  <button class="md-icon-button md-button md-ink-ripple md-roldx-theme hopscotch-close" type="button"  aria-label="<%= i18n.closeTooltip %>">
+      <md-icon md-font-icon="icon-close s18" class="ng-scope md-font material-icons icon-close s18 md-roldx-theme" aria-hidden="true"></md-icon>
+  </button><% } %>
+  
+  <md-dialog-content ms-scroll="" layout="column" flex="" class="ms-scroll layout-column flex ps-container ps-theme-default">
     <% if(step.title !== ''){ %><h3 class="hopscotch-title"><%= optEscape(step.title, tour.unsafe) %></h3><% } %>
-    <% if(step.content  !== ''){ %><div class="hopscotch-content"><%= optEscape(step.content, tour.unsafe) %></div><% } %>
-  </div>
-  <div class="hopscotch-actions">
-    <% if(buttons.showPrev){ %><button class="hopscotch-nav-button prev hopscotch-prev"><%= i18n.prevBtn %></button><% } %>
-    <% if(buttons.showCTA){ %><button class="hopscotch-nav-button next hopscotch-cta"><%= buttons.ctaLabel %></button><% } %>
-    <% if(buttons.showNext){ %><button class="hopscotch-nav-button next hopscotch-next"><%= i18n.nextBtn %></button><% } %>
-  </div>
-  <% if(buttons.showClose){ %><button class="hopscotch-bubble-close hopscotch-close"><%= i18n.closeTooltip %></button><% } %>
-</div>
+    <% if(step.content  !== ''){ %><div class="content text-center"><%= optEscape(step.content, tour.unsafe) %></div><% } %>
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row" class="layout-row">
+    <% if(buttons.showPrev){ %>
+    <div flex="50" class="flex-50">
+      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-prev" type="button">
+        <%= i18n.prevBtn %>
+      </button>
+    </div>
+    <% } %>
+
+    <% if(buttons.showNext){ %>
+    <div flex="50" class="flex-50">
+      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-next">
+        <%= i18n.nextBtn %>
+      </button>
+    </div>
+    <% } %>
+
+    <% if(buttons.showCTA){ %>
+    <div flex="50" class="flex-50">
+      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-cta">
+        <%= buttons.ctaLabel %>
+      </button>
+    </div>
+    <% } %>
+  </md-dialog-actions>
+</md-dialog>
+
 <div class="hopscotch-bubble-arrow-container hopscotch-arrow">
   <div class="hopscotch-bubble-arrow-border"></div>
   <div class="hopscotch-bubble-arrow"></div>
