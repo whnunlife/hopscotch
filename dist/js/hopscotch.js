@@ -1,4 +1,4 @@
-/**! hopscotch - v0.2.7
+/**! hopscotch - v0.2.8
 *
 * Copyright 2017 LinkedIn Corp. All rights reserved.
 *
@@ -2489,17 +2489,17 @@ var buttons = data.buttons;
 var step = data.step;
 var tour = data.tour;
 ;
-__p += '\n<div class="hopscotch-bubble-container" style="width: ' +
+__p += '\n<md-dialog class="hopscotch-dialog md-content-overflow md-transition-in" style="width: ' +
 ((__t = ( step.width )) == null ? '' : __t) +
 'px; padding: ' +
 ((__t = ( step.padding )) == null ? '' : __t) +
 'px;">\n  ';
- if(tour.isTour){ ;
-__p += '<span class="hopscotch-bubble-number">' +
-((__t = ( i18n.stepNum )) == null ? '' : __t) +
-'</span>';
+ if(buttons.showClose){ ;
+__p += '\n  <button class="md-icon-button md-button md-ink-ripple md-roldx-theme hopscotch-close" type="button"  aria-label="' +
+((__t = ( i18n.closeTooltip )) == null ? '' : __t) +
+'">\n      <md-icon md-font-icon="icon-close s18" class="ng-scope md-font material-icons icon-close s18 md-roldx-theme" aria-hidden="true"></md-icon>\n  </button>';
  } ;
-__p += '\n  <div class="hopscotch-bubble-content">\n    ';
+__p += '\n  \n  <md-dialog-content ms-scroll="" layout="column" flex="" class="ms-scroll layout-column flex ps-container ps-theme-default">\n    ';
  if(step.title !== ''){ ;
 __p += '<h3 class="hopscotch-title">' +
 ((__t = ( optEscape(step.title, tour.unsafe) )) == null ? '' : __t) +
@@ -2507,35 +2507,29 @@ __p += '<h3 class="hopscotch-title">' +
  } ;
 __p += '\n    ';
  if(step.content  !== ''){ ;
-__p += '<div class="hopscotch-content">' +
+__p += '<div class="content text-center">' +
 ((__t = ( optEscape(step.content, tour.unsafe) )) == null ? '' : __t) +
 '</div>';
  } ;
-__p += '\n  </div>\n  <div class="hopscotch-actions">\n    ';
+__p += '\n  </md-dialog-content>\n\n  <md-dialog-actions layout="row" class="layout-row">\n    ';
  if(buttons.showPrev){ ;
-__p += '<button class="hopscotch-nav-button prev hopscotch-prev">' +
+__p += '\n    <div flex="50" class="flex-50">\n      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-prev" type="button">\n        ' +
 ((__t = ( i18n.prevBtn )) == null ? '' : __t) +
-'</button>';
+'\n      </button>\n    </div>\n    ';
  } ;
-__p += '\n    ';
- if(buttons.showCTA){ ;
-__p += '<button class="hopscotch-nav-button next hopscotch-cta">' +
-((__t = ( buttons.ctaLabel )) == null ? '' : __t) +
-'</button>';
- } ;
-__p += '\n    ';
+__p += '\n\n    ';
  if(buttons.showNext){ ;
-__p += '<button class="hopscotch-nav-button next hopscotch-next">' +
+__p += '\n    <div flex="50" class="flex-50">\n      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-next">\n        ' +
 ((__t = ( i18n.nextBtn )) == null ? '' : __t) +
-'</button>';
+'\n      </button>\n    </div>\n    ';
  } ;
-__p += '\n  </div>\n  ';
- if(buttons.showClose){ ;
-__p += '<button class="hopscotch-bubble-close hopscotch-close">' +
-((__t = ( i18n.closeTooltip )) == null ? '' : __t) +
-'</button>';
+__p += '\n\n    ';
+ if(buttons.showCTA){ ;
+__p += '\n    <div flex="50" class="flex-50">\n      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-cta">\n        ' +
+((__t = ( buttons.ctaLabel )) == null ? '' : __t) +
+'\n      </button>\n    </div>\n    ';
  } ;
-__p += '\n</div>\n<div class="hopscotch-bubble-arrow-container hopscotch-arrow">\n  <div class="hopscotch-bubble-arrow-border"></div>\n  <div class="hopscotch-bubble-arrow"></div>\n</div>\n';
+__p += '\n  </md-dialog-actions>\n</md-dialog>\n\n<div class="hopscotch-bubble-arrow-container hopscotch-arrow">\n  <div class="hopscotch-bubble-arrow-border"></div>\n  <div class="hopscotch-bubble-arrow"></div>\n</div>\n';
 return __p
 };
 }.call(winHopscotch));
