@@ -24,6 +24,10 @@ var tour = data.tour;
   </md-dialog-content>
 
   <md-dialog-actions layout="row" class="layout-row">
+    <% if(step.num == 0) { %>
+    <div flex="50" class="flex-50"></div>
+    <% } %>
+
     <% if(buttons.showPrev){ %>
     <div flex="50" class="flex-50">
       <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-prev" type="button">
