@@ -1,4 +1,4 @@
-/**! hopscotch - v0.2.9
+/**! hopscotch - v0.3.0
 *
 * Copyright 2017 LinkedIn Corp. All rights reserved.
 *
@@ -2512,6 +2512,10 @@ __p += '<div class="content text-center">' +
 '</div>';
  } ;
 __p += '\n  </md-dialog-content>\n\n  <md-dialog-actions layout="row" class="layout-row">\n    ';
+ if(step.num == 0) { ;
+__p += '\n    <div flex="50" class="flex-50"></div>\n    ';
+ } ;
+__p += '\n\n    ';
  if(buttons.showPrev){ ;
 __p += '\n    <div flex="50" class="flex-50">\n      <button class="md-primary md-raised md-button md-ink-ripple md-roldx-theme hopscotch-prev" type="button">\n        ' +
 ((__t = ( i18n.prevBtn )) == null ? '' : __t) +
